@@ -7,8 +7,19 @@
 //
 
 #import "ViewController.h"
+#import "GADBannerView.h"
 
-@interface ViewController ()
+
+@interface ViewController () {
+    
+    GADBannerView *banner;
+    
+}
+
+@property (weak, nonatomic) IBOutlet UIView *bannerView;
+
+
+
 
 @end
 
@@ -17,6 +28,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    // iPhone6, 6 plus の場合このままだと右にグレーがでてしまう
+    // banner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+    
+    // この方法だと大丈夫
+    banner = [[GADBannerView alloc] initWithAdSize:GADAdSizeFullWidthPortraitWithHeight(GAD_SIZE_320x50.height)];
+    
+    
+    banner.adUnitID = @"ca-app-pub-5768712291641162/5041310539";
+    banner.rootViewController = self;
+    [self.bannerView addSubview:banner];
+    
+    [banner loadRequest:[GADRequest request]];
+    
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
