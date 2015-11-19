@@ -6,4 +6,8 @@ iPhone6の場合は、以前のままだと、右横に空白が入ってしま�
 
 AdMobのSDKはcocospodsで
 
+i0S9にしたらlinker command failed with exit code 1でエラー
 
+Build Settings＞Build Options＞Enable Bitcode = NO
+
+でエラーの回避　何でだろう？
