@@ -11,15 +11,10 @@
 
 
 @interface ViewController () {
-    
     GADBannerView *banner;
-    
 }
 
 @property (weak, nonatomic) IBOutlet UIView *bannerView;
-
-
-
 
 @end
 
@@ -35,16 +30,11 @@
     // この方法だと大丈夫
     banner = [[GADBannerView alloc] initWithAdSize:GADAdSizeFullWidthPortraitWithHeight(GAD_SIZE_320x50.height)];
     
-    
     banner.adUnitID = @"ca-app-pub-5768712291641162/5041310539";
     banner.rootViewController = self;
     [self.bannerView addSubview:banner];
     
     [banner loadRequest:[GADRequest request]];
-    
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
